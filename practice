@@ -1,0 +1,57 @@
+## COUNT Function
+
+SELECT 
+    COUNT(DISTINCT emp_no)
+FROM
+    employees.dept_emp;
+
+## SUM Function
+
+
+SELECT 
+    SUM(salary)
+FROM
+    employees.salaries
+WHERE
+    from_date > '1997-01-01';
+
+
+## Min/Max Functions
+SELECT 
+    MIN(emp_no)
+FROM
+    employees.employees;
+
+SELECT 
+    MAX(emp_no)
+FROM
+    employees.employees;
+
+## Average Function
+
+SELECT 
+    AVG(salary) avg_salary
+FROM
+    employees.salaries
+WHERE
+    from_date > '1997-01-01';
+
+## Round Function
+
+SELECT 
+    ROUND(AVG(salary), 2) avg_salary
+FROM
+    employees.salaries
+WHERE
+    from_date > '1997-01-01';
+    
+
+## IFNULL and Coalesce Functions
+
+SELECT
+	IFNULL(dept_no, 'N/A') dept_no,
+    IFNULL(dept_name, 'Department name not provided') dept_name,
+    coalesce(dept_no, dept_name, 'N/A') dept_info
+FROM 
+	employees.departments_dup
+ORDER BY dept_no;
